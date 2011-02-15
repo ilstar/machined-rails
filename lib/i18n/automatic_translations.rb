@@ -20,7 +20,7 @@ module MachinedRails::I18n
     end
 
     def self.deep_stringify_keys(hash)
-      returning r = ActiveSupport::OrderedHash.new do
+      ActiveSupport::OrderedHash.new.tap do |r|
         hash.keys.sort { |a, b| a.to_s <=> b.to_s }.each do |key|
           value = hash[key]
           value = deep_stringify_keys(value) if value.is_a? Hash
