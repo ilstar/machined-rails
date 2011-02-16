@@ -5,9 +5,10 @@ module MachinedRails::Helpers
       resource = args[0]
       attributes = args[1..-1]
       content_tag(:ul, nil, :class => :attributes) do
-        attributes.map do |attribute|
+        s = attributes.map do |attribute|
           attribute(resource, attribute, options[attribute])
         end.join(' ')
+        raw(s)
       end
     end
 
@@ -19,10 +20,11 @@ module MachinedRails::Helpers
       label = label_for(resource, attribute)
       display_value = value_for(resource, attribute, value)
       content_tag(:li) do
-        [
+        s = [
           content_tag(:div, label, :class => "field-label"),
           content_tag(:div, display_value, :class => "field-value"),
         ].join(' ')
+        raw(s)
       end
     end
 
