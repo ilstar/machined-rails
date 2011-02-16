@@ -8,10 +8,11 @@ module MachinedRails::Helpers
     def use(bundle)
       content_for(:head) do
         add_empty_expansions(bundle)
-        [
+        s = [
           javascript_include_tag(bundle),
           stylesheet_link_tag(bundle)
         ].join(' ')
+        raw(s)
       end
     end
   end
