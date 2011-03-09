@@ -6,7 +6,6 @@ module MachinedRails
     autoload :TitleHelper,      'helpers/title_helper'
     autoload :FormHelper,       'helpers/form_helper'
     autoload :TimeHelper,       'helpers/time_helper'
-    autoload :TinyMceHelper,    'helpers/tiny_mce_helper'
   end
 
   module I18n
@@ -21,7 +20,6 @@ module MachinedRails
       ActionController::Base.helper(MachinedRails::Helpers::TitleHelper)
       ActionController::Base.helper(MachinedRails::Helpers::FormHelper)
       ActionController::Base.helper(MachinedRails::Helpers::TimeHelper)
-      ActionController::Base.helper(MachinedRails::Helpers::TinyMceHelper)
     end
 
     initializer "machined-rails.i18n" do
